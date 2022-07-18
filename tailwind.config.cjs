@@ -2,6 +2,7 @@
 module.exports = {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   mode: "jit",
+  darkMode: "class",
   theme: {
     extend: {
       colors:{
@@ -15,6 +16,7 @@ module.exports = {
           200: "#ebedef",
           100: "#f2f3f5",
         }
+        
       }
     },
   },

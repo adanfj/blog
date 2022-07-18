@@ -1,11 +1,12 @@
 <script>
 	import '../app.css';
 import SideBar from '../components/SideBar.svelte';
+import theme from '$lib/shared/stores/theme';
 </script>
 
-<SideBar/>
 
-<main>
+<main class={$theme}>
+	<SideBar/>
 	<slot />
 </main>
 

@@ -37,30 +37,3 @@ export const POST = async ({ request, locals }) => {
 	return {};
 };
 
-// If the user has JavaScript disabled, the URL will change to
-// include the method override unless we redirect back to /todos
-const redirect = {
-	status: 303,
-	headers: {
-		location: '/todos'
-	}
-};
-
-export const PATCH = async ({ request, locals }) => {
-	const form = await request.formData();
-
-	await api('PATCH', `todos/${locals.userid}/${form.get('uid')}`, {
-		text: form.has('text') ? form.get('text') : undefined,
-		done: form.has('done') ? !!form.get('done') : undefined
-	});
-
-	return redirect;
-};
-
-export const DELETE = async ({ request, locals }) => {
-	const form = await request.formData();
-
-	await api('DELETE', `todos/${locals.userid}/${form.get('uid')}`);
-
-	return redirect;
-};
